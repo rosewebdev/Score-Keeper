@@ -10,6 +10,8 @@
 
 @interface ScoreViewController ()
 
+@property (strong, nonatomic)UIScrollView *scrollView;
+
 @end
 
 @implementation ScoreViewController
@@ -17,6 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
 }
 
 - (void)didReceiveMemoryWarning {
