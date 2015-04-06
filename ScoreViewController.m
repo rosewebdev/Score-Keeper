@@ -19,6 +19,15 @@ static CGFloat scoreViewHeight = 50;
 
 @implementation ScoreViewController
 
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+    }
+    return self;
+}
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -42,10 +51,10 @@ static CGFloat scoreViewHeight = 50;
     CGFloat scoreFieldWidth = 20;
     CGFloat stepperButtonWidth = 40;
     
-    UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, index * scoreViewHeight, self.view.frame.size.width, scoreViewHeight)];
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, index * scoreViewHeight, self.view.frame.size.width, scoreViewHeight)];
     
 //Name Field Location
-    UITextField *nameField = [[UITextField alloc]initWithFrame:CGRectMake(fieldMargin, fieldMargin, nameFieldWidth, 40)];
+    UITextField *nameField = [[UITextField alloc] initWithFrame:CGRectMake(fieldMargin, fieldMargin, nameFieldWidth, 40)];
     nameField.tag = -1000;
     nameField.delegate = self;
     nameField.placeholder = @"Name";
@@ -68,7 +77,12 @@ static CGFloat scoreViewHeight = 50;
 }
 
 -(void)scoreStepperChanged:(id)sender {
+    UIStepper *stepper = sender;
+    NSInteger index = stepper.tag;
+    double value = [stepper value];
     
+    UILabel *scoreLabel = self.scoreLabels[index];
+    scoreLabel.text = [NSString stringWithFormat:@"%d", (int)value];
 }
 
 - (void)didReceiveMemoryWarning {
