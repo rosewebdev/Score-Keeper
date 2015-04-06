@@ -7,10 +7,10 @@
 //
 
 #import "ScoreViewController.h"
-
+static CGFloat fieldMargin = 20;
 static CGFloat scoreViewHeight = 50;
 
-@interface ScoreViewController ()
+@interface ScoreViewController () <UITextFieldDelegate>
 
 @property (strong, nonatomic)UIScrollView *scrollView;
 
@@ -33,8 +33,25 @@ static CGFloat scoreViewHeight = 50;
 
 - (void)addScoreView: (NSInteger)index {
     
+    CGFloat nameFieldWidth = 40;
+    CGFloat scoreFieldWidth = 20;
+    CGFloat stepperButtonWidth = 40;
+    
     UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, index * scoreViewHeight, self.view.frame.size.width, scoreViewHeight)];
     
+    UITextField *nameField = [[UITextField alloc]initWithFrame:CGRectMake(fieldMargin, fieldMargin, nameFieldWidth, 40)];
+    nameField.tag = -1000;
+    nameField.delegate = self;
+    nameField.placeholder = @"Name";
+    [view addSubview:nameField];
+    
+    UILabel *scoreLabel = [[UILabel alloc] initWithFrame:CGRectMake(fieldMargin + nameFieldWidth, fieldMargin, scoreFieldWidth, 40)];
+    scoreLabel.text = @"0";
+    scoreLabel.textAlignment = NSTextAlignmentCenter;
+    [view addSubview:scoreLabel];
+    
+    UIStepper *scoreStepper = [[UIStepper alloc] initWithFrame:CGRectMake(40 + nameFieldWidth + scoreFieldWidth, 15, stepperButtonWidth, 40)];
+    [view addSubview:scoreStepper];
 }
 
 - (void)didReceiveMemoryWarning {
