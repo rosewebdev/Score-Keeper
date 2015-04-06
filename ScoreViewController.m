@@ -47,33 +47,39 @@ static CGFloat scoreViewHeight = 50;
 
 - (void)addScoreView: (NSInteger)index {
     
-    CGFloat nameFieldWidth = 40;
-    CGFloat scoreFieldWidth = 20;
-    CGFloat stepperButtonWidth = 40;
+    CGFloat nameFieldWidth = 50;
+    CGFloat scoreFieldWidth = 25;
+    CGFloat stepperButtonWidth = 50;
     
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, index * scoreViewHeight, self.view.frame.size.width, scoreViewHeight)];
     
 //Name Field Location
-    UITextField *nameField = [[UITextField alloc] initWithFrame:CGRectMake(fieldMargin, fieldMargin, nameFieldWidth, 40)];
+    UITextField *nameField = [[UITextField alloc] initWithFrame:CGRectMake(fieldMargin, fieldMargin, nameFieldWidth, 45)];
     nameField.tag = -1000;
     nameField.delegate = self;
     nameField.placeholder = @"Name";
     [view addSubview:nameField];
     
 //Score View Location
-    UILabel *scoreLabel = [[UILabel alloc] initWithFrame:CGRectMake(fieldMargin + nameFieldWidth, fieldMargin, scoreFieldWidth, 40)];
+    UILabel *scoreLabel = [[UILabel alloc] initWithFrame:CGRectMake(fieldMargin + nameFieldWidth, fieldMargin, scoreFieldWidth, 45)];
     scoreLabel.text = @"0";
     scoreLabel.textAlignment = NSTextAlignmentCenter;
     [self.scoreLabels addObject:scoreLabel];
     [view addSubview:scoreLabel];
     
 //Stepper Location
-    UIStepper *scoreStepper = [[UIStepper alloc] initWithFrame:CGRectMake(40 + nameFieldWidth + scoreFieldWidth, 15, stepperButtonWidth, 40)];
+    UIStepper *scoreStepper = [[UIStepper alloc] initWithFrame:CGRectMake(40 + nameFieldWidth + scoreFieldWidth, 15, stepperButtonWidth, 45)];
     scoreStepper.maximumValue = 100;
     scoreStepper.minimumValue = -100;
     scoreStepper.tag = index;
     [scoreStepper addTarget:self action:@selector(scoreStepperChanged:) forControlEvents:UIControlEventValueChanged];
     [view addSubview:scoreStepper];
+    
+    UIView *separator = [[UIView alloc] initWithFrame:CGRectMake(0, scoreViewHeight -1, self.view.frame.size.width, 1)];
+    separator.backgroundColor = [UIColor lightGrayColor];
+    [view addSubview:separator];
+    
+    [self.scrollView addSubview:view];
 }
 
 -(void)scoreStepperChanged:(id)sender {
@@ -83,6 +89,11 @@ static CGFloat scoreViewHeight = 50;
     
     UILabel *scoreLabel = self.scoreLabels[index];
     scoreLabel.text = [NSString stringWithFormat:@"%d", (int)value];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return YES;
 }
 
 - (void)didReceiveMemoryWarning {
