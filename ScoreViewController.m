@@ -63,7 +63,12 @@ static CGFloat scoreViewHeight = 50;
     scoreStepper.maximumValue = 100;
     scoreStepper.minimumValue = -100;
     scoreStepper.tag = index;
+    [scoreStepper addTarget:self action:@selector(scoreStepperChanged:) forControlEvents:UIControlEventValueChanged];
     [view addSubview:scoreStepper];
+}
+
+-(void)scoreStepperChanged:(id)sender {
+    
 }
 
 - (void)didReceiveMemoryWarning {
