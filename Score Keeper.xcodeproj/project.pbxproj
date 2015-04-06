@@ -19,6 +19,7 @@
 		71DEBF2F1924955A0032F31F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71DEBF171924955A0032F31F /* UIKit.framework */; };
 		71DEBF371924955A0032F31F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 71DEBF351924955A0032F31F /* InfoPlist.strings */; };
 		71DEBF391924955A0032F31F /* Score_KeeperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 71DEBF381924955A0032F31F /* Score_KeeperTests.m */; };
+		82BE372D1AD2537700F1D6D0 /* ScoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82BE372C1AD2537700F1D6D0 /* ScoreViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,8 @@
 		71DEBF341924955A0032F31F /* Score KeeperTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Score KeeperTests-Info.plist"; sourceTree = "<group>"; };
 		71DEBF361924955A0032F31F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		71DEBF381924955A0032F31F /* Score_KeeperTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Score_KeeperTests.m; sourceTree = "<group>"; };
+		82BE372B1AD2537700F1D6D0 /* ScoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreViewController.h; sourceTree = "<group>"; };
+		82BE372C1AD2537700F1D6D0 /* ScoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +80,8 @@
 		71DEBF071924955A0032F31F = {
 			isa = PBXGroup;
 			children = (
+				82BE372B1AD2537700F1D6D0 /* ScoreViewController.h */,
+				82BE372C1AD2537700F1D6D0 /* ScoreViewController.m */,
 				71DEBF191924955A0032F31F /* Score Keeper */,
 				71DEBF321924955A0032F31F /* Score KeeperTests */,
 				71DEBF121924955A0032F31F /* Frameworks */,
@@ -240,6 +245,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82BE372D1AD2537700F1D6D0 /* ScoreViewController.m in Sources */,
 				71DEBF241924955A0032F31F /* SKAppDelegate.m in Sources */,
 				71DEBF201924955A0032F31F /* main.m in Sources */,
 			);
@@ -438,6 +444,7 @@
 				71DEBF3E1924955A0032F31F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		71DEBF3F1924955A0032F31F /* Build configuration list for PBXNativeTarget "Score KeeperTests" */ = {
 			isa = XCConfigurationList;
@@ -446,6 +453,7 @@
 				71DEBF411924955A0032F31F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
