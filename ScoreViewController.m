@@ -29,6 +29,10 @@ static CGFloat scoreViewHeight = 50;
     [self.view addSubview:scrollView];
     self.scrollView = scrollView;
     
+    for (NSInteger i = 0; i < 4; i++) {
+        [self addScoreView:i];
+    }
+    
 }
 
 - (void)addScoreView: (NSInteger)index {
@@ -39,18 +43,24 @@ static CGFloat scoreViewHeight = 50;
     
     UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, index * scoreViewHeight, self.view.frame.size.width, scoreViewHeight)];
     
+//Name Field Location
     UITextField *nameField = [[UITextField alloc]initWithFrame:CGRectMake(fieldMargin, fieldMargin, nameFieldWidth, 40)];
     nameField.tag = -1000;
     nameField.delegate = self;
     nameField.placeholder = @"Name";
     [view addSubview:nameField];
     
+//Score View Location
     UILabel *scoreLabel = [[UILabel alloc] initWithFrame:CGRectMake(fieldMargin + nameFieldWidth, fieldMargin, scoreFieldWidth, 40)];
     scoreLabel.text = @"0";
     scoreLabel.textAlignment = NSTextAlignmentCenter;
     [view addSubview:scoreLabel];
     
+//Stepper Location
     UIStepper *scoreStepper = [[UIStepper alloc] initWithFrame:CGRectMake(40 + nameFieldWidth + scoreFieldWidth, 15, stepperButtonWidth, 40)];
+    scoreStepper.maximumValue = 100;
+    scoreStepper.minimumValue = -100;
+    scoreStepper.tag = index;
     [view addSubview:scoreStepper];
 }
 
