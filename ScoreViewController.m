@@ -34,7 +34,6 @@ static CGFloat scoreViewHeight = 50;
     for (NSInteger i = 0; i < 4; i++) {
         [self addScoreView:i];
     }
-    
 }
 
 - (void)addScoreView: (NSInteger)index {
@@ -56,6 +55,7 @@ static CGFloat scoreViewHeight = 50;
     UILabel *scoreLabel = [[UILabel alloc] initWithFrame:CGRectMake(fieldMargin + nameFieldWidth, fieldMargin, scoreFieldWidth, 40)];
     scoreLabel.text = @"0";
     scoreLabel.textAlignment = NSTextAlignmentCenter;
+    [self.scoreLabels addObject:scoreLabel];
     [view addSubview:scoreLabel];
     
 //Stepper Location
