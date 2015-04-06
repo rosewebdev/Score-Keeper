@@ -13,6 +13,7 @@ static CGFloat scoreViewHeight = 50;
 @interface ScoreViewController () <UITextFieldDelegate>
 
 @property (strong, nonatomic)UIScrollView *scrollView;
+@property (strong, nonatomic)NSMutableArray *scoreLabels;
 
 @end
 
@@ -24,6 +25,7 @@ static CGFloat scoreViewHeight = 50;
     
     self.title = @"Score Keeper";
     
+    self.scoreLabels = [NSMutableArray new];
     
     UIScrollView *scrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - 64)];
     [self.view addSubview:scrollView];
