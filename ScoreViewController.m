@@ -47,9 +47,9 @@ static CGFloat scoreViewHeight = 50;
 
 - (void)addScoreView: (NSInteger)index {
     
-    CGFloat nameFieldWidth = 50;
-    CGFloat scoreFieldWidth = 25;
-    CGFloat stepperButtonWidth = 50;
+    CGFloat nameFieldWidth = 85;
+    CGFloat scoreFieldWidth = 50;
+    CGFloat stepperButtonWidth = 85;
     
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, index * scoreViewHeight, self.view.frame.size.width, scoreViewHeight)];
     
