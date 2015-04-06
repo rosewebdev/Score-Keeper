@@ -8,6 +8,8 @@
 
 #import "ScoreViewController.h"
 
+static CGFloat scoreViewHeight = 50;
+
 @interface ScoreViewController ()
 
 @property (strong, nonatomic)UIScrollView *scrollView;
@@ -25,6 +27,14 @@
     
     UIScrollView *scrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - 64)];
     [self.view addSubview:scrollView];
+    self.scrollView = scrollView;
+    
+}
+
+- (void)addScoreView: (NSInteger)index {
+    
+    UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, index * scoreViewHeight, self.view.frame.size.width, scoreViewHeight)];
+    
 }
 
 - (void)didReceiveMemoryWarning {
